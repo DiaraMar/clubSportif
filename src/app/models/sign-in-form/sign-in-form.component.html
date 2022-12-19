@@ -1,0 +1,66 @@
+<!--<form #login="ngForm" (ngSubmit)="submitSignIn(login)">
+    <div class="form-group">
+        <label for="firstName">firstName</label>
+        <input type="text" name="firstName" class="form-control" ngModel>
+    </div>
+    <pre></pre>
+    <div class="form-group">
+        <label for="password">password</label>
+        <input type="password" name="password" class="form-control" ngModel>
+    </div>
+    <pre></pre>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>-->
+<div class="outet">
+<div class="container">
+    <div class="row">
+        <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+            <div class="panel border bg-white">
+                <div class="panel-heading">
+                    <h3 class="pt-3 font-weight-bold">Login</h3>
+                </div>
+                <div class="panel-body p-3">
+
+                    <form [formGroup]="signInForm" >
+
+                        <div class="form-group pt-3"> 
+                            <div class="input-field" >
+                                <span class="fa fa-user p-2"></span>
+                                <input type="text" placeholder="Username" formControlName="username">
+                            </div>
+                        </div>
+                        <small 
+                        *ngIf="signInForm.controls['username'].dirty && signInForm.hasError('required','username')" 
+                        class="text-danger">
+                        Username is required
+                        </small>
+ 
+                        <div class="form-group pt-3">
+                            <div class="input-field" >
+                                <span class="fa fa-lock p-2"></span>
+                                <input type="{{type}}" placeholder="Password" formControlName="password">
+                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                            </div>
+                        </div>
+                        <small 
+                        *ngIf="signInForm.controls['password'].dirty && signInForm.hasError('required','password')" 
+                        class="text-danger">
+                        Password is required
+                        </small>
+                        <div class="form-inlinr fr mt-4">
+                            <a id="forget" class="font-weight-bold">Forget password ?</a>
+                        </div>
+
+                        <button (click)="onSignIn()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Login</button>
+                            
+                        <div class="text-center pt-4 text-muted">Don't have account ? <a id="forget" routerLink="/signup"> SignUp</a></div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

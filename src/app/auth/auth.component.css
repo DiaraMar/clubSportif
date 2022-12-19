@@ -1,0 +1,44 @@
+/*style*/
+
+
+
+/*skelette*/
+.auth{
+    border: 1px solid grey; 
+    display: flex;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.screen{
+    border: 1px solid rebeccapurple;
+    height: 77vh;
+    padding-top: 8vh;
+    text-align: center;
+    width: 50%;
+
+}
+h1{
+  padding-bottom: 3vh;
+}
+
+p span {
+    display: block;
+    padding-bottom: 1vh; 
+
+  }
+
+/*skelette*/
+@media (max-width: 912px) {
+    .auth{
+        flex-direction: column-reverse;
+    }
+    .screen{
+        height: 100%;
+        top: 0; right: 0; bottom: 0; left: 0;
+        width: 100%;
+    }
+    .left-screen{
+        display: none;
+    }
+}
