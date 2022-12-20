@@ -17,6 +17,7 @@ ul{
 .global-container {
     border: 2px solid orange; 
     position: absolute;
+    height: 200vh;
     top: 0; right: 0; bottom: 0; left: 0;
 }
 
@@ -37,7 +38,7 @@ ul{
 
 .main-div-container{
     border: 1px solid blue; 
-    height: 85vh;
+    height: 155vh;
     position: absolute;
     top: 5vh; right: 0; left: 0;
 }
@@ -45,7 +46,7 @@ ul{
 .footer-global-container{
     border: 1px solid red; 
     position: absolute;
-    top: 90vh; right: 0; left: 0; bottom: 0;
+    top:160vh; right: 0; left: 0; bottom: 0;
 }
 
 

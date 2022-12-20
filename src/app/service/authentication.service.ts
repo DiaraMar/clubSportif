@@ -12,6 +12,10 @@ export class AuthenticationService {
   constructor(private http : HttpClient) { }
 
 //Calling back-end api
+
+checkCredentials(email : String){
+  return this.http.post<any>(`${this.baseUrl}isUserExist`, email)
+}
 signUp(accountObject : any){
   return this.http.post<any>(`${this.baseUrl}register`, accountObject)
 }

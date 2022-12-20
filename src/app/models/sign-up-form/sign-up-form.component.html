@@ -1,76 +1,531 @@
-
 <div class="outet">
-<div class="container">
-    <div class="row">
-        <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
-            <div class="panel border bg-white">
-                <div class="panel-heading">
-                    <h3 class="pt-3 font-weight-bold">Sign up</h3>
-                </div>
-                <div class="panel-body p-3">
-                    <form [formGroup]="signUpForm" >
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Sign up</h3>
+                    </div>
+                    <div class="panel-body p-3">
 
-                        <div class="form-group pt-3">
-                            <div class="input-field">
-                                <span class="fa fa-user p-2"></span>
-                                <input type="text" formControlName="username"  placeholder="Username">
+                        <!-- xxxxxxxxxxxxxxxxxx ADD CAROUSSEL https://www.jag-conseil.com/guides/8-meilleurs-carrousels-en-css3-htm5-js-pour-site-web-moderne/#:~:text=Les%20carrousels%20en%20CSS%20%2F%20HTML,%2C%20etc...).xxxxxxxxxxxxxxxxxxxxxx -->
+                        <form [formGroup]="signUpForm">
+
+                            <div class="carroussel">
+                                <div class="slider-container">
+                                    <div class="menu">
+                                        <label for="slide-dot-1"></label>
+                                        <label for="slide-dot-2"></label>
+                                        <label for="slide-dot-3"></label>
+                                        <label for="slide-dot-4"></label>
+                                        <label for="slide-dot-5"></label>
+                                    </div>
+
+                                    <input class="slide-input" id="slide-dot-1" type="radio" name="slides" checked>
+                                    <div class="slide-img"
+                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide1.jpg">
+                                        <!-- Email -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')"
+                                            class="text-danger">
+                                            Email is required
+                                        </small>
+
+                                        <!-- button next to check if email exist -->
+
+
+                                        <!-- Password -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-lock p-2"></span>
+                                                <input type="{{type}}" formControlName="password"
+                                                    placeholder="Password">
+                                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')"
+                                            class="text-danger">
+                                            Password is required
+                                        </small>
+
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-lock p-2"></span>
+                                                <input type="{{type}}" formControlName="confirmPassword"
+                                                    placeholder="Confirm Password">
+                                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['confirmPassword'].dirty && signUpForm.hasError('required','confirmPassword')"
+                                            class="text-danger">
+                                            Confirmation password is required
+                                        </small>
+
+                                    </div>
+
+
+
+
+                                    <input class="slide-input" id="slide-dot-2" type="radio" name="slides">
+                                    <div class="slide-img"
+                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg">
+                                        <!-- //civility -->
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="civility"
+                                                id="inlineRadio1" value="mr" formControlName="civility">
+                                            <label class="form-check-label" for="inlineRadio1">Mr</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="civility"
+                                                id="inlineRadio2" value="mrs" formControlName="civility">
+                                            <label class="form-check-label" for="inlineRadio2">Mrs</label>
+                                        </div>
+
+                                        <!-- // lastname -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="lastname" placeholder="Lastname">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['lastname'].dirty && signUpForm.hasError('required','lastname')"
+                                            class="text-danger">
+                                            lastname is required
+                                        </small>
+
+                                        <!-- // firstname -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="firstname" placeholder="Firstname">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['firstname'].dirty && signUpForm.hasError('required','firstname')"
+                                            class="text-danger">
+                                            firstname is required
+                                        </small>
+
+
+                                        <!-- Date birth  -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="dateBirth" placeholder="Date birth">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['dateBirth'].dirty && signUpForm.hasError('pattern','dateBirth')"
+                                            class="text-danger">
+                                            Date Birth is required. DD/MM/yyyy
+                                        </small>
+
+                                        <!-- Phone  -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="phone" placeholder="Phone">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['phone'].dirty && signUpForm.hasError('pattern','phone')"
+                                            class="text-danger">
+                                            phone is required xx xx xx xx xx
+                                        </small>
+                                    </div>
+
+
+
+
+
+                                    <input class="slide-input" id="slide-dot-3" type="radio" name="slides">
+                                    <div class="slide-img"
+                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg">
+                                        <!-- // club -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <select id="club-select" class="form-control" formControlName="club">
+                                                    <option selected>Fight club Paris 5e</option>
+                                                    <option selected>Fitness Argenteuil</option>
+                                                    <option selected>Fitness Park</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['club'].dirty && signUpForm.hasError('required','club')"
+                                            class="text-danger">
+                                            Club is required
+                                        </small>
+
+                                        <!-- // subscription -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <select id="club-select" class="form-control"
+                                                    formControlName="subscription">
+                                                    <option selected>Paiement mensuel</option>
+                                                    <option selected>Sans engagement</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['subscription'].dirty && signUpForm.hasError('required','subscription')"
+                                            class="text-danger">
+                                            subscription is required
+                                        </small>
+
+                                        <!-- isSubscribedToEmailing -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="isSubscribedToEmailing" value="true"
+                                                    formControlName="isSubscribedToEmailing">
+                                                <label class="form-check-label" for="isSubscribedToEmailing">Je souhaite
+                                                    recevoir les dernières actualités des partenaires</label>
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['isSubscribedToEmailing'].dirty && signUpForm.hasError('required','isSubscribedToEmailing')"
+                                            class="text-danger">
+                                        </small>
+
+
+                                        <!-- isSubscribedTrainingProgram -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="isSubscribedTrainingProgram" value="true"
+                                                    formControlName="isSubscribedTrainingProgram">
+                                                <label class="form-check-label" for="isSubscribedTrainingProgram">Je
+                                                    souhaite
+                                                    bénéficier d'un accompagnement et de programmes d'entraînements
+                                                    personnalisés</label>
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['isSubscribedTrainingProgram'].dirty && signUpForm.hasError('required','isSubscribedTrainingProgram')"
+                                            class="text-danger">
+                                        </small>
+
+                                        <!-- isAggreingTermsOfSales -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="isAggreingTermsOfSales" value="true"
+                                                    formControlName="isAggreingTermsOfSales">
+                                                <label class="form-check-label" for="isAggreingTermsOfSales">En passant
+                                                    à
+                                                    l'étape suivante, vous acceptez de vous conformer aux conditions
+                                                    générales
+                                                    de vente du club sportif</label>
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['isAggreingTermsOfSales'].dirty && signUpForm.hasError('required','isAggreingTermsOfSales')"
+                                            class="text-danger">
+                                        </small>
+                                    </div>
+
+                                    <input class="slide-input" id="slide-dot-4" type="radio" name="slides">
+                                    <div class="slide-img"
+                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg">
+                                        <!-- Adress -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="adress" placeholder="Adress">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['adress'].dirty && signUpForm.hasError('required','adress')"
+                                            class="text-danger">
+                                            adress is required
+                                        </small>
+
+
+                                        <!-- ZIP  -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="zip" placeholder="Postal code">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['zip'].dirty && signUpForm.hasError('pattern','zip')"
+                                            class="text-danger">
+                                            ZIP is required
+                                        </small>
+
+                                        <!-- City -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="city" placeholder="city">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['city'].dirty && signUpForm.hasError('required','city')"
+                                            class="text-danger">
+                                            city is required
+                                        </small>
+
+                                        <!-- Country -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="country" placeholder="country">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['country'].dirty && signUpForm.hasError('required','country')"
+                                            class="text-danger">
+                                            country is required
+                                        </small>
+
+                                    </div>
+
+
+
+                                    <input class="slide-input" id="slide-dot-5" type="radio" name="slides">
+                                    <div class="slide-img"
+                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg">
+                                        <!-- ribRegisterCHoice -->
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ribRegisterChoice"
+                                                id="inlineRadio3" value=true formControlName="ribRegisterChoice">
+                                            <label class="form-check-label" for="inlineRadio1">Je remplis mon RIB
+                                                maintenant</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ribRegisterChoice"
+                                                id="inlineRadio4" value=false formControlName="ribRegisterChoice">
+                                            <label class="form-check-label" for="inlineRadio2">Je dépose mon RIB en
+                                                club</label>
+                                        </div>
+
+                                        <!-- ngif ribRegisterCHoice=true -->
+
+                                        <!-- isPayer -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <input class="form-check-input" type="checkbox" id="isPayer"
+                                                    value="true" formControlName="isPayer">
+                                                <label class="form-check-label" for="isPayer">Le bénéficiaire est pas le
+                                                    payeur</label>
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['isPayer'].dirty && signUpForm.hasError('required','isPayer')"
+                                            class="text-danger">
+                                        </small>
+
+                                        <!-- bankingEstablishment -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="bankingEstablishment"
+                                                    placeholder="Banking Establishment">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['bankingEstablishment'].dirty && signUpForm.hasError('required','bankingEstablishment')"
+                                            class="text-danger">
+                                            bankingEstablishment is required
+                                        </small>
+
+                                        <!-- IBAN -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="IBAN" placeholder="IBAN">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['IBAN'].dirty && signUpForm.hasError('required','IBAN')"
+                                            class="text-danger">
+                                            IBAN is required
+                                        </small>
+
+                                        <!-- BIC -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="BIC" placeholder="BIC">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['BIC'].dirty && signUpForm.hasError('required','BIC')"
+                                            class="text-danger">
+                                            BIC is required
+                                        </small>
+
+                                        <!-- ngIf=!isPayer -->
+                                        <!-- //civilityPayer -->
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="civilityPayer"
+                                                id="inlineRadio8" value="mr" formControlName="civilityPayer">
+                                            <label class="form-check-label" for="inlineRadio8">Mr</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="civilityPayer"
+                                                id="inlineRadio9" value="mrs" formControlName="civilityPayer">
+                                            <label class="form-check-label" for="inlineRadio9">Mrs</label>
+                                        </div>
+
+                                        <!-- // lastnamePayer -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="lastnamePayer"
+                                                    placeholder="Lastname of the payer">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['lastnamePayer'].dirty && signUpForm.hasError('required','lastnamePayer')"
+                                            class="text-danger">
+                                            lastname of the payer is required
+                                        </small>
+
+                                        <!-- // firstnamePayer -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="firstnamePayer"
+                                                    placeholder="Firstname of the payer">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['firstnamePayer'].dirty && signUpForm.hasError('required','firstnamePayer')"
+                                            class="text-danger">
+                                            firstname of the payer is required
+                                        </small>
+
+                                        <!-- emailPayer -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="emailPayer"
+                                                    placeholder="Email of the payer">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['emailPayer'].dirty && signUpForm.hasError('required','emailPayer')"
+                                            class="text-danger">
+                                            Email of the payer is required
+                                        </small>
+
+                                        <!-- DateBirthPayer  -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="dateBirthPayer"
+                                                    placeholder="Date birth of the payer">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['dateBirthPayer'].dirty && signUpForm.hasError('pattern','dateBirthPayer')"
+                                            class="text-danger">
+                                            Date Birth of payer is required. DD/MM/yyyy
+                                        </small>
+
+                                        <!-- phonePayer  -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="phonePayer"
+                                                    placeholder="phone of the payer">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['phonePayer'].dirty && signUpForm.hasError('pattern','phone')"
+                                            class="text-danger">
+                                            phone of the payer is required xx xx xx xx xx
+                                        </small>
+
+                                        <!-- bankingEstablishmentPayer -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="bankingEstablishmentPayer"
+                                                    placeholder="Banking Establishment of the payer">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['bankingEstablishment'].dirty && signUpForm.hasError('required','bankingEstablishmentPayer')"
+                                            class="text-danger">
+                                            banking establishment of the payer is required
+                                        </small>
+
+                                        <!-- IBANPayer -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="IBANPayer" placeholder="IBANPayer">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['IBANPayer'].dirty && signUpForm.hasError('required','IBANPayer')"
+                                            class="text-danger">
+                                            IBAN of the payer is required
+                                        </small>
+
+                                        <!-- BICPayer -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="BICPayer" placeholder="BICPayer">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['BICPayer'].dirty && signUpForm.hasError('required','BICPayer')"
+                                            class="text-danger">
+                                            BICPayer is required
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
                             </div>
-                        </div>
-                        <small 
-                        *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')" 
-                        class="text-danger">
-                        Username is required
-                        </small>
-                    
 
-                        <div class="form-group pt-3">
-                            <div class="input-field">
-                                <span class="fa fa-user p-2"></span>
-                                <input type="text" formControlName="email" placeholder="Email">
-                            </div>
-                        </div>
-                        <small 
-                        *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')" 
-                        class="text-danger">
-                        Email is required
-                        </small>
-                    
-                        <div class="form-group pt-3">
-                            <div class="input-field">
-                                <span class="fa fa-lock p-2"></span>
-                                <input type="{{type}}" formControlName="password" placeholder="Password">
-                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
-                            </div>
-                        </div>
-                        <small 
-                        *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')" 
-                        class="text-danger">
-                        Password is required
-                        </small>
-
-                        <div class="form-group pt-3">
-                            <div class="input-field">
-                                <span class="fa fa-lock p-2"></span>
-                                <input type="{{type}}" formControlName="confirmPassword"  placeholder="Confirm Password">
-                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
-                            </div>
-                        </div>
-                        <small 
-                        *ngIf="signUpForm.controls['confirmPassword'].dirty && signUpForm.hasError('required','confirmPassword')" 
-                        class="text-danger">
-                        Confirmation password is required
-                        </small>
-
-                        <button (click)="onSignUp()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign up</button>
+                            <!-- xxxxxxxxxxxxxxxxxx ADD CAROUSSEL https://www.jag-conseil.com/guides/8-meilleurs-carrousels-en-css3-htm5-js-pour-site-web-moderne/#:~:text=Les%20carrousels%20en%20CSS%20%2F%20HTML,%2C%20etc...).xxxxxxxxxxxxxxxxxxxxxx -->
 
 
-                        <div class="text-center pt-4 text-muted">Already have account ?<a id="forget" routerLink="/signin"> Sign In</a></div>
 
-                    </form>
+                            <!-- api payement -->
+
+
+
+
+
+                            <!-- <button (click)="onNextStepForm()"
+                                class="btn btn-primary btn-block mt-4 w-100">Next</button>
+                            <button (click)="onPreviousStepForm()"
+                                class="btn btn-primary btn-block mt-4 w-100">Previous</button> -->
+
+
+                                <!-- [disabled]="!signUpForm.valid -->
+                            <button (click)="onSignUp()" type="submit"
+                                class="btn btn-primary btn-block mt-4 w-100">Sign
+                                up</button>
+                            <div class="text-center pt-4 text-muted">Already have account ?<a id="forget"
+                                    routerLink="/signin"> Sign In</a></div>
+
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 </div>
