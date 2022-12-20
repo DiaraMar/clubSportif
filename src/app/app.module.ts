@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { SignInFormComponent } from './models/sign-in-form/sign-in-form.component';
 import { SignUpFormComponent } from './models/sign-up-form/sign-up-form.component';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     SignInFormComponent,
-    SignUpFormComponent
+    SignUpFormComponent,
+    ProfilComponent
 
   ],
   imports: [

@@ -34,8 +34,15 @@
                                         <small
                                             *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')"
                                             class="text-danger">
-                                            Email is required
+                                            Veuillez saisir un E-mail.
                                         </small>
+                                        <small
+                                            *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('email','email')"
+                                            class="text-danger">
+                                            Veuillez saisir un E-mail.
+                                        </small>
+
+
 
                                         <!-- button next to check if email exist -->
 
@@ -88,6 +95,11 @@
                                                 id="inlineRadio2" value="mrs" formControlName="civility">
                                             <label class="form-check-label" for="inlineRadio2">Mrs</label>
                                         </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['civility'].dirty && signUpForm.hasError('required','civility')"
+                                            class="text-danger">
+                                            “Veuillez saisir votre civilité.
+                                        </small>
 
                                         <!-- // lastname -->
                                         <div class="form-group pt-3">
@@ -99,7 +111,7 @@
                                         <small
                                             *ngIf="signUpForm.controls['lastname'].dirty && signUpForm.hasError('required','lastname')"
                                             class="text-danger">
-                                            lastname is required
+                                            “Veuillez saisir un nom."
                                         </small>
 
                                         <!-- // firstname -->
@@ -112,7 +124,7 @@
                                         <small
                                             *ngIf="signUpForm.controls['firstname'].dirty && signUpForm.hasError('required','firstname')"
                                             class="text-danger">
-                                            firstname is required
+                                            “Veuillez saisir un prénom."
                                         </small>
 
 
@@ -123,10 +135,16 @@
                                                 <input type="text" formControlName="dateBirth" placeholder="Date birth">
                                             </div>
                                         </div>
+
+                                        <small
+                                            *ngIf="signUpForm.controls['dateBirth'].dirty && signUpForm.hasError('required','dateBirth')"
+                                            class="text-danger">
+                                            Veuillez saisir une date de naissance.
+                                        </small>
                                         <small
                                             *ngIf="signUpForm.controls['dateBirth'].dirty && signUpForm.hasError('pattern','dateBirth')"
                                             class="text-danger">
-                                            Date Birth is required. DD/MM/yyyy
+                                            Veuillez saisir une date de naissance valide. (exemple : 23/11/2000)
                                         </small>
 
                                         <!-- Phone  -->
@@ -137,9 +155,14 @@
                                             </div>
                                         </div>
                                         <small
+                                            *ngIf="signUpForm.controls['phone'].dirty && signUpForm.hasError('required','phone')"
+                                            class="text-danger">
+                                            Veuillez saisir un numéro de téléphone.
+                                        </small>
+                                        <small
                                             *ngIf="signUpForm.controls['phone'].dirty && signUpForm.hasError('pattern','phone')"
                                             class="text-danger">
-                                            phone is required xx xx xx xx xx
+                                            Veuillez saisir un numéro de téléphone valide.
                                         </small>
                                     </div>
 
@@ -161,11 +184,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <small
-                                            *ngIf="signUpForm.controls['club'].dirty && signUpForm.hasError('required','club')"
-                                            class="text-danger">
-                                            Club is required
-                                        </small>
+
 
                                         <!-- // subscription -->
                                         <div class="form-group pt-3">
@@ -179,9 +198,9 @@
                                             </div>
                                         </div>
                                         <small
-                                            *ngIf="signUpForm.controls['subscription'].dirty && signUpForm.hasError('required','subscription')"
+                                            *ngIf="!signUpForm.controls['subscription'].touched && signUpForm.hasError('required','subscription')"
                                             class="text-danger">
-                                            subscription is required
+                                            Veuillez saisir un abonnement.
                                         </small>
 
                                         <!-- isSubscribedToEmailing -->
@@ -194,10 +213,6 @@
                                                     recevoir les dernières actualités des partenaires</label>
                                             </div>
                                         </div>
-                                        <small
-                                            *ngIf="signUpForm.controls['isSubscribedToEmailing'].dirty && signUpForm.hasError('required','isSubscribedToEmailing')"
-                                            class="text-danger">
-                                        </small>
 
 
                                         <!-- isSubscribedTrainingProgram -->
@@ -212,10 +227,7 @@
                                                     personnalisés</label>
                                             </div>
                                         </div>
-                                        <small
-                                            *ngIf="signUpForm.controls['isSubscribedTrainingProgram'].dirty && signUpForm.hasError('required','isSubscribedTrainingProgram')"
-                                            class="text-danger">
-                                        </small>
+
 
                                         <!-- isAggreingTermsOfSales -->
                                         <div class="form-group pt-3">
@@ -231,8 +243,9 @@
                                             </div>
                                         </div>
                                         <small
-                                            *ngIf="signUpForm.controls['isAggreingTermsOfSales'].dirty && signUpForm.hasError('required','isAggreingTermsOfSales')"
+                                            *ngIf="signUpForm.controls['isAggreingTermsOfSales'] && signUpForm.hasError('required','isAggreingTermsOfSales')"
                                             class="text-danger">
+                                            Veuillez accepter les Conditions générales de vente.
                                         </small>
                                     </div>
 
@@ -249,7 +262,12 @@
                                         <small
                                             *ngIf="signUpForm.controls['adress'].dirty && signUpForm.hasError('required','adress')"
                                             class="text-danger">
-                                            adress is required
+                                            Veuillez saisir une adresse postale
+                                        </small>
+                                        <small
+                                            *ngIf="signUpForm.controls['adress'].dirty && signUpForm.hasError('pattern','adress')"
+                                            class="text-danger">
+                                            Veuillez saisir une adresse postale valide
                                         </small>
 
 
@@ -261,9 +279,14 @@
                                             </div>
                                         </div>
                                         <small
+                                            *ngIf="signUpForm.controls['zip'].dirty && signUpForm.hasError('required','zip')"
+                                            class="text-danger">
+                                            Veuillez saisir un code postal.
+                                        </small>
+                                        <small
                                             *ngIf="signUpForm.controls['zip'].dirty && signUpForm.hasError('pattern','zip')"
                                             class="text-danger">
-                                            ZIP is required
+                                            Veuillez saisir un code postal valide.
                                         </small>
 
                                         <!-- City -->
@@ -276,7 +299,7 @@
                                         <small
                                             *ngIf="signUpForm.controls['city'].dirty && signUpForm.hasError('required','city')"
                                             class="text-danger">
-                                            city is required
+                                            Veuillez saisir une ville.
                                         </small>
 
                                         <!-- Country -->
@@ -289,7 +312,7 @@
                                         <small
                                             *ngIf="signUpForm.controls['country'].dirty && signUpForm.hasError('required','country')"
                                             class="text-danger">
-                                            country is required
+                                            Veuillez saisir un pays.
                                         </small>
 
                                     </div>
@@ -312,6 +335,11 @@
                                             <label class="form-check-label" for="inlineRadio2">Je dépose mon RIB en
                                                 club</label>
                                         </div>
+                                        <small
+                                            *ngIf="!signUpForm.controls['ribRegisterChoice'].touched && signUpForm.hasError('required','subscription')"
+                                            class="text-danger">
+                                            Veuillez saisir une option
+                                        </small>
 
                                         <!-- ngif ribRegisterCHoice=true -->
 
@@ -320,14 +348,12 @@
                                             <div class="input-field">
                                                 <input class="form-check-input" type="checkbox" id="isPayer"
                                                     value="true" formControlName="isPayer">
-                                                <label class="form-check-label" for="isPayer">Le bénéficiaire est pas le
+                                                <label class="form-check-label" for="isPayer">Le bénéficiaire n'est pas
+                                                    le
                                                     payeur</label>
                                             </div>
                                         </div>
-                                        <small
-                                            *ngIf="signUpForm.controls['isPayer'].dirty && signUpForm.hasError('required','isPayer')"
-                                            class="text-danger">
-                                        </small>
+
 
                                         <!-- bankingEstablishment -->
                                         <div class="form-group pt-3">
@@ -343,6 +369,20 @@
                                             bankingEstablishment is required
                                         </small>
 
+                                        <!-- RIB -->
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="RIB" placeholder="RIB">
+                                            </div>
+                                        </div>
+                                        <!-- Find pattern -->
+                                        <small
+                                            *ngIf="signUpForm.controls['RIB'].dirty && signUpForm.hasError('pattern','RIB')"
+                                            class="text-danger">
+                                            Veuillez saisir un RIB
+                                        </small>
+
                                         <!-- IBAN -->
                                         <div class="form-group pt-3">
                                             <div class="input-field">
@@ -351,9 +391,9 @@
                                             </div>
                                         </div>
                                         <small
-                                            *ngIf="signUpForm.controls['IBAN'].dirty && signUpForm.hasError('required','IBAN')"
+                                            *ngIf="signUpForm.controls['IBAN'].dirty && signUpForm.hasError('pattern','IBAN')"
                                             class="text-danger">
-                                            IBAN is required
+                                            Veuillez saisir un IBAN
                                         </small>
 
                                         <!-- BIC -->
@@ -364,9 +404,9 @@
                                             </div>
                                         </div>
                                         <small
-                                            *ngIf="signUpForm.controls['BIC'].dirty && signUpForm.hasError('required','BIC')"
+                                            *ngIf="signUpForm.controls['BIC'].dirty && signUpForm.hasError('pattern','BIC')"
                                             class="text-danger">
-                                            BIC is required
+                                            Veuillez saisir un BIC
                                         </small>
 
                                         <!-- ngIf=!isPayer -->
@@ -381,6 +421,12 @@
                                                 id="inlineRadio9" value="mrs" formControlName="civilityPayer">
                                             <label class="form-check-label" for="inlineRadio9">Mrs</label>
                                         </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['civilityPayer'].touched && signUpForm.hasError('required','civilityPayer')"
+                                            class="text-danger">
+                                            Veuillez saisir votre civilité (Payeur)
+                                        </small>
+
 
                                         <!-- // lastnamePayer -->
                                         <div class="form-group pt-3">
@@ -393,7 +439,7 @@
                                         <small
                                             *ngIf="signUpForm.controls['lastnamePayer'].dirty && signUpForm.hasError('required','lastnamePayer')"
                                             class="text-danger">
-                                            lastname of the payer is required
+                                            Veuillez saisir un nom.
                                         </small>
 
                                         <!-- // firstnamePayer -->
@@ -407,7 +453,7 @@
                                         <small
                                             *ngIf="signUpForm.controls['firstnamePayer'].dirty && signUpForm.hasError('required','firstnamePayer')"
                                             class="text-danger">
-                                            firstname of the payer is required
+                                            Veuillez saisir un prénom
                                         </small>
 
                                         <!-- emailPayer -->
@@ -421,7 +467,7 @@
                                         <small
                                             *ngIf="signUpForm.controls['emailPayer'].dirty && signUpForm.hasError('required','emailPayer')"
                                             class="text-danger">
-                                            Email of the payer is required
+                                            Veuillez saisir un Email
                                         </small>
 
                                         <!-- DateBirthPayer  -->
@@ -435,7 +481,7 @@
                                         <small
                                             *ngIf="signUpForm.controls['dateBirthPayer'].dirty && signUpForm.hasError('pattern','dateBirthPayer')"
                                             class="text-danger">
-                                            Date Birth of payer is required. DD/MM/yyyy
+                                            Veuillez saisir une date de naissance. DD/MM/yyyy
                                         </small>
 
                                         <!-- phonePayer  -->
@@ -449,7 +495,7 @@
                                         <small
                                             *ngIf="signUpForm.controls['phonePayer'].dirty && signUpForm.hasError('pattern','phone')"
                                             class="text-danger">
-                                            phone of the payer is required xx xx xx xx xx
+                                            Veuillez saisir un numéro de téléphone
                                         </small>
 
                                         <!-- bankingEstablishmentPayer -->
@@ -460,10 +506,26 @@
                                                     placeholder="Banking Establishment of the payer">
                                             </div>
                                         </div>
+                                        <!--Find pattern-->
                                         <small
                                             *ngIf="signUpForm.controls['bankingEstablishment'].dirty && signUpForm.hasError('required','bankingEstablishmentPayer')"
                                             class="text-danger">
-                                            banking establishment of the payer is required
+                                            Veuillez saisir un établissement bancaire correct.
+                                        </small>
+
+                                        <!-- RIBPayer -->
+                                        <!--Find pattern-->
+
+                                        <div class="form-group pt-3">
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="RIBPayer" placeholder="RIBPayer">
+                                            </div>
+                                        </div>
+                                        <small
+                                            *ngIf="signUpForm.controls['RIBPayer'].dirty && signUpForm.hasError('required','RIB')"
+                                            class="text-danger">
+                                            Veuillez saisir un RIB (Payeur)
                                         </small>
 
                                         <!-- IBANPayer -->
@@ -474,9 +536,9 @@
                                             </div>
                                         </div>
                                         <small
-                                            *ngIf="signUpForm.controls['IBANPayer'].dirty && signUpForm.hasError('required','IBANPayer')"
+                                            *ngIf="signUpForm.controls['IBANPayer'].dirty && signUpForm.hasError('pattern','IBANPayer')"
                                             class="text-danger">
-                                            IBAN of the payer is required
+                                            Veuillez saisir un IBAN.
                                         </small>
 
                                         <!-- BICPayer -->
@@ -487,9 +549,9 @@
                                             </div>
                                         </div>
                                         <small
-                                            *ngIf="signUpForm.controls['BICPayer'].dirty && signUpForm.hasError('required','BICPayer')"
+                                            *ngIf="signUpForm.controls['BICPayer'].dirty && signUpForm.hasError('pattern','BICPayer')"
                                             class="text-danger">
-                                            BICPayer is required
+                                            Veuillez saisir un BIC.d
                                         </small>
 
                                     </div>
@@ -514,9 +576,8 @@
                                 class="btn btn-primary btn-block mt-4 w-100">Previous</button> -->
 
 
-                                <!-- [disabled]="!signUpForm.valid -->
-                            <button (click)="onSignUp()" type="submit"
-                                class="btn btn-primary btn-block mt-4 w-100">Sign
+                            <!-- [disabled]="!signUpForm.valid -->
+                            <button (click)="onSignUp()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign
                                 up</button>
                             <div class="text-center pt-4 text-muted">Already have account ?<a id="forget"
                                     routerLink="/signin"> Sign In</a></div>
