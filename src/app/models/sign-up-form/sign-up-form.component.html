@@ -1,34 +1,36 @@
 <div class="outet">
     <div class="container">
         <div class="row">
-            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3" style="width: 95%; margin: auto;">
                 <div class="panel border bg-white">
                     <div class="panel-heading">
-                        <h3 class="pt-3 font-weight-bold">Sign up</h3>
+                        <h3 class="pt-3 font-weight-bold" style="text-align: center ;">Sign up</h3>
                     </div>
                     <div class="panel-body p-3">
 
                         <!-- xxxxxxxxxxxxxxxxxx ADD CAROUSSEL https://www.jag-conseil.com/guides/8-meilleurs-carrousels-en-css3-htm5-js-pour-site-web-moderne/#:~:text=Les%20carrousels%20en%20CSS%20%2F%20HTML,%2C%20etc...).xxxxxxxxxxxxxxxxxxxxxx -->
                         <form [formGroup]="signUpForm">
 
-                            <div class="carroussel">
+                            <div class="carroussel" >
                                 <div class="slider-container">
                                     <div class="menu">
-                                        <label for="slide-dot-1"></label>
-                                        <label for="slide-dot-2"></label>
-                                        <label for="slide-dot-3"></label>
-                                        <label for="slide-dot-4"></label>
-                                        <label for="slide-dot-5"></label>
+                                        <label for="slide-dot-1" (click)="showSlide(1)"></label>
+                                        <label for="slide-dot-2" (click)="showSlide(2)"></label>
+                                        <label for="slide-dot-3" (click)="showSlide(3)"></label>
+                                        <label for="slide-dot-4" (click)="showSlide(4)"></label>
+                                        <label for="slide-dot-5" (click)="showSlide(5)"></label>
                                     </div>
 
-                                    <input class="slide-input" id="slide-dot-1" type="radio" name="slides" checked>
+                                    <input class="slide-input" id="slide-dot-1" type="radio" name="slides" checked >
+
                                     <div class="slide-img"
-                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide1.jpg">
+                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide1.jpg"
+                                        *ngIf="slidePage===1">
                                         <!-- Email -->
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="email" placeholder="Email">
+                                                <input type="text" formControlName="email" placeholder="Email" style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -52,8 +54,8 @@
                                             <div class="input-field">
                                                 <span class="fa fa-lock p-2"></span>
                                                 <input type="{{type}}" formControlName="password"
-                                                    placeholder="Password">
-                                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                                    placeholder="Password" style="width: 90%;">
+                                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}" style="padding-left: 1vw;"></span>
                                             </div>
                                         </div>
                                         <small
@@ -66,8 +68,8 @@
                                             <div class="input-field">
                                                 <span class="fa fa-lock p-2"></span>
                                                 <input type="{{type}}" formControlName="confirmPassword"
-                                                    placeholder="Confirm Password">
-                                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                                    placeholder="Confirm Password" style="width: 90%;">
+                                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}" style="padding-left: 1vw;"></span>
                                             </div>
                                         </div>
                                         <small
@@ -83,9 +85,10 @@
 
                                     <input class="slide-input" id="slide-dot-2" type="radio" name="slides">
                                     <div class="slide-img"
-                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg">
+                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg"
+                                        *ngIf="slidePage===2">
                                         <!-- //civility -->
-                                        <div class="form-check form-check-inline">
+                                        <div class="form-check form-check-inline" style="padding-left: 5vh;">
                                             <input class="form-check-input" type="radio" name="civility"
                                                 id="inlineRadio1" value="mr" formControlName="civility">
                                             <label class="form-check-label" for="inlineRadio1">Mr</label>
@@ -105,7 +108,7 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="lastname" placeholder="Lastname">
+                                                <input type="text" formControlName="lastname" placeholder="Lastname" style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -118,7 +121,7 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="firstname" placeholder="Firstname">
+                                                <input type="text" formControlName="firstname" placeholder="Firstname"  style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -132,7 +135,7 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="dateBirth" placeholder="Date birth">
+                                                <input type="text" formControlName="dateBirth" placeholder="Date birth"  style="width: 90%;">
                                             </div>
                                         </div>
 
@@ -151,7 +154,7 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="phone" placeholder="Phone">
+                                                <input type="text" formControlName="phone" placeholder="Phone"  style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -172,7 +175,8 @@
 
                                     <input class="slide-input" id="slide-dot-3" type="radio" name="slides">
                                     <div class="slide-img"
-                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg">
+                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg"
+                                        *ngIf="slidePage===3">
                                         <!-- // club -->
                                         <div class="form-group pt-3">
                                             <div class="input-field">
@@ -251,12 +255,13 @@
 
                                     <input class="slide-input" id="slide-dot-4" type="radio" name="slides">
                                     <div class="slide-img"
-                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg">
+                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg"
+                                        *ngIf="slidePage===4">
                                         <!-- Adress -->
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="adress" placeholder="Adress">
+                                                <input type="text" formControlName="adress" placeholder="Adress"  style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -272,10 +277,18 @@
 
 
                                         <!-- ZIP  -->
-                                        <div class="form-group pt-3">
+                                        <div class="form-group pt-3" style="display: flex;">
+                                            <div class="input-field" style="margin-left: 0px; margin-right: 0px;">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="zip" placeholder="Postal code"  style="width: 60%;">
+                                            </div>
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="zip" placeholder="Postal code">
+                                                <input type="text" formControlName="city" placeholder="city"  style="width: 60%;">
+                                            </div>
+                                            <div class="input-field">
+                                                <span class="fa fa-user p-2"></span>
+                                                <input type="text" formControlName="country" placeholder="country"  style="width: 60%;">
                                             </div>
                                         </div>
                                         <small
@@ -290,12 +303,6 @@
                                         </small>
 
                                         <!-- City -->
-                                        <div class="form-group pt-3">
-                                            <div class="input-field">
-                                                <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="city" placeholder="city">
-                                            </div>
-                                        </div>
                                         <small
                                             *ngIf="signUpForm.controls['city'].dirty && signUpForm.hasError('required','city')"
                                             class="text-danger">
@@ -303,12 +310,6 @@
                                         </small>
 
                                         <!-- Country -->
-                                        <div class="form-group pt-3">
-                                            <div class="input-field">
-                                                <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="country" placeholder="country">
-                                            </div>
-                                        </div>
                                         <small
                                             *ngIf="signUpForm.controls['country'].dirty && signUpForm.hasError('required','country')"
                                             class="text-danger">
@@ -321,11 +322,12 @@
 
                                     <input class="slide-input" id="slide-dot-5" type="radio" name="slides">
                                     <div class="slide-img"
-                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg">
+                                        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg"
+                                        *ngIf="slidePage===5">
                                         <!-- ribRegisterCHoice -->
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="ribRegisterChoice"
-                                                id="inlineRadio3" value=true formControlName="ribRegisterChoice">
+                                                id="inlineRadio3" value=true formControlName="ribRegisterChoice"  >
                                             <label class="form-check-label" for="inlineRadio1">Je remplis mon RIB
                                                 maintenant</label>
                                         </div>
@@ -335,6 +337,7 @@
                                             <label class="form-check-label" for="inlineRadio2">Je dépose mon RIB en
                                                 club</label>
                                         </div>
+                                        <br>
                                         <small
                                             *ngIf="!signUpForm.controls['ribRegisterChoice'].touched && signUpForm.hasError('required','subscription')"
                                             class="text-danger">
@@ -347,8 +350,8 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <input class="form-check-input" type="checkbox" id="isPayer"
-                                                    value="true" formControlName="isPayer">
-                                                <label class="form-check-label" for="isPayer">Le bénéficiaire n'est pas
+                                                    value="true" formControlName="isPayer"  >
+                                                <label class="form-check-label" for="isPayer" style="padding-left: 1vw;"> Le bénéficiaire n'est pas
                                                     le
                                                     payeur</label>
                                             </div>
@@ -360,7 +363,7 @@
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
                                                 <input type="text" formControlName="bankingEstablishment"
-                                                    placeholder="Banking Establishment">
+                                                    placeholder="Banking Establishment"  style="width: 45%;">
                                             </div>
                                         </div>
                                         <small
@@ -373,7 +376,7 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="RIB" placeholder="RIB">
+                                                <input type="text" formControlName="RIB" placeholder="RIB"  style="width: 45%;">
                                             </div>
                                         </div>
                                         <!-- Find pattern -->
@@ -387,7 +390,7 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="IBAN" placeholder="IBAN">
+                                                <input type="text" formControlName="IBAN" placeholder="IBAN"  style="width: 45%;">
                                             </div>
                                         </div>
                                         <small
@@ -400,7 +403,7 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="BIC" placeholder="BIC">
+                                                <input type="text" formControlName="BIC" placeholder="BIC"  style="width: 30%;">
                                             </div>
                                         </div>
                                         <small
@@ -408,9 +411,12 @@
                                             class="text-danger">
                                             Veuillez saisir un BIC
                                         </small>
+                                        <br>
 
                                         <!-- ngIf=!isPayer -->
                                         <!-- //civilityPayer -->
+                                        <div >
+                                        </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="civilityPayer"
                                                 id="inlineRadio8" value="mr" formControlName="civilityPayer">
@@ -433,7 +439,7 @@
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
                                                 <input type="text" formControlName="lastnamePayer"
-                                                    placeholder="Lastname of the payer">
+                                                    placeholder="Lastname of the payer" style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -447,7 +453,7 @@
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
                                                 <input type="text" formControlName="firstnamePayer"
-                                                    placeholder="Firstname of the payer">
+                                                    placeholder="Firstname of the payer" style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -461,7 +467,7 @@
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
                                                 <input type="text" formControlName="emailPayer"
-                                                    placeholder="Email of the payer">
+                                                    placeholder="Email of the payer" style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -475,7 +481,7 @@
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
                                                 <input type="text" formControlName="dateBirthPayer"
-                                                    placeholder="Date birth of the payer">
+                                                    placeholder="Date birth of the payer" style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -489,7 +495,7 @@
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
                                                 <input type="text" formControlName="phonePayer"
-                                                    placeholder="phone of the payer">
+                                                    placeholder="phone of the payer" style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -503,7 +509,7 @@
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
                                                 <input type="text" formControlName="bankingEstablishmentPayer"
-                                                    placeholder="Banking Establishment of the payer">
+                                                    placeholder="Banking Establishment of the payer" style="width: 90%;">
                                             </div>
                                         </div>
                                         <!--Find pattern-->
@@ -519,7 +525,7 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="RIBPayer" placeholder="RIBPayer">
+                                                <input type="text" formControlName="RIBPayer" placeholder="RIBPayer" style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -532,7 +538,7 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="IBANPayer" placeholder="IBANPayer">
+                                                <input type="text" formControlName="IBANPayer" placeholder="IBANPayer" style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
@@ -545,13 +551,13 @@
                                         <div class="form-group pt-3">
                                             <div class="input-field">
                                                 <span class="fa fa-user p-2"></span>
-                                                <input type="text" formControlName="BICPayer" placeholder="BICPayer">
+                                                <input type="text" formControlName="BICPayer" placeholder="BICPayer" style="width: 90%;">
                                             </div>
                                         </div>
                                         <small
                                             *ngIf="signUpForm.controls['BICPayer'].dirty && signUpForm.hasError('pattern','BICPayer')"
                                             class="text-danger">
-                                            Veuillez saisir un BIC.d
+                                            Veuillez saisir un BIC
                                         </small>
 
                                     </div>
@@ -559,6 +565,17 @@
                                 </div>
 
                             </div>
+
+                            <!-- [disabled]="!signUpForm.valid -->
+                            <div>
+
+                                <button (click)="onSignUp()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign
+                                    up</button>
+                                <div class="text-center pt-4 text-muted">Already have account ?<a id="forget"
+                                        routerLink="/signin"> Sign In</a></div>
+
+                            </div>
+
 
                             <!-- xxxxxxxxxxxxxxxxxx ADD CAROUSSEL https://www.jag-conseil.com/guides/8-meilleurs-carrousels-en-css3-htm5-js-pour-site-web-moderne/#:~:text=Les%20carrousels%20en%20CSS%20%2F%20HTML,%2C%20etc...).xxxxxxxxxxxxxxxxxxxxxx -->
 
@@ -576,11 +593,7 @@
                                 class="btn btn-primary btn-block mt-4 w-100">Previous</button> -->
 
 
-                            <!-- [disabled]="!signUpForm.valid -->
-                            <button (click)="onSignUp()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign
-                                up</button>
-                            <div class="text-center pt-4 text-muted">Already have account ?<a id="forget"
-                                    routerLink="/signin"> Sign In</a></div>
+
 
                         </form>
                     </div>

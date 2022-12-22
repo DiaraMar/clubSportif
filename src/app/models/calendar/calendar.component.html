@@ -1,0 +1,41 @@
+<section>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Lundi</th>
+            <th scope="col">Mardi</th>
+            <th scope="col">Mercredi</th>
+            <th scope="col">jeudi</th>
+            <th scope="col">vendredi</th>
+            <th scope="col">samedi</th>
+            <th scope="col">dimanche</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <th scope="row">s1</th>
+            <td *ngFor="let day of SEMAINE1; let index = index; let isFirst = first; let isOdd = odd;">
+                <span >{{day>0?day:""}}</span>
+            </td>
+          </tr>
+          <tr >
+            <th scope="row">s2</th>
+            <td *ngFor="let day of SEMAINE2; let index = index; let isFirst = first; let isOdd = odd;">{{day}}</td>
+          </tr>
+          <tr >
+            <th scope="row">s3</th>
+            <td *ngFor="let day of SEMAINE3; let index = index; let isFirst = first; let isOdd = odd;">{{day}}</td>
+          </tr>
+          <tr >
+            <th scope="row">s4</th>
+            <td *ngFor="let day of SEMAINE4; let index = index; let isFirst = first; let isOdd = odd;">{{day}}</td>
+          </tr>
+          <tr >
+            <th scope="row">s5</th>
+            <td *ngFor="let day of SEMAINE5; let index = index; let isFirst = first; let isOdd = odd;">{{day}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</section>

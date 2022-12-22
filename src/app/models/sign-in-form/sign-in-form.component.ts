@@ -16,6 +16,8 @@ export class SignInFormComponent implements OnInit {
   isText : boolean = false;
   eyeIcon : string ="fa-eye-slash";
   signInForm! : FormGroup;
+  rmCheck : any; 
+
   //passwordPattern : string ="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]).{8,32}$";
 
   constructor(private fb : FormBuilder,private authenticationService : AuthenticationService) {}
@@ -24,7 +26,8 @@ export class SignInFormComponent implements OnInit {
     this.signInForm = this.fb.group({
       username : ['', [Validators.required, Validators.email]],
       password : ['', [Validators.minLength(5), Validators.required]] //+, Validators.pattern(this.passwordPattern) Regex password no shorter than 5 chars, and with letters and numbers
-    })
+    });
+    this.rmCheck = document.getElementById("rememberMe");
   }
 
   /*submitSignIn(loginForm : NgForm){
@@ -39,6 +42,10 @@ export class SignInFormComponent implements OnInit {
     }
 
     onSignIn(){
+    console.log(this.rmCheck.checked);
+//cookie save
+
+
       if(this.signInForm.valid){      
         this.authenticationService.signIn(this.signInForm)
       }else{
@@ -47,6 +54,8 @@ export class SignInFormComponent implements OnInit {
       }
     }
 
+    
+    
 
 
 
