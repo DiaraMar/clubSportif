@@ -16,24 +16,56 @@
           <tr >
             <th scope="row">s1</th>
             <td *ngFor="let day of SEMAINE1; let index = index; let isFirst = first; let isOdd = odd;">
-                <span >{{day>0?day:""}}</span>
+                <span >{{day}}</span>
+                <div *ngFor="let element of getValueOfElement(day) ">
+                    <span >{{getObject(element)[0]}}</span>
+                </div>
             </td>
           </tr>
           <tr >
             <th scope="row">s2</th>
-            <td *ngFor="let day of SEMAINE2; let index = index; let isFirst = first; let isOdd = odd;">{{day}}</td>
+            <td *ngFor="let day of SEMAINE2; let index = index; let isFirst = first; let isOdd = odd;">
+                <span >{{day}}</span>
+                <div *ngFor="let element of getValueOfElement(day) ">
+                    <span>{{getObject(element)[0]}}</span>
+                </div>
+            </td>
           </tr>
           <tr >
             <th scope="row">s3</th>
-            <td *ngFor="let day of SEMAINE3; let index = index; let isFirst = first; let isOdd = odd;">{{day}}</td>
+            <td *ngFor="let day of SEMAINE3; let index = index; let isFirst = first; let isOdd = odd;">
+                <span >{{day}}</span>
+                <div *ngFor="let element of getValueOfElement(day) ">
+                    <span>{{getObject(element)[0]}}</span>
+                </div>
+            </td>
           </tr>
           <tr >
             <th scope="row">s4</th>
-            <td *ngFor="let day of SEMAINE4; let index = index; let isFirst = first; let isOdd = odd;">{{day}}</td>
+            <td *ngFor="let day of SEMAINE4; let index = index; let isFirst = first; let isOdd = odd;">
+                <span >{{day}}</span>
+                <div *ngFor="let element of getValueOfElement(day) ">
+                    <span>{{getObject(element)[0]}}</span>
+                </div>
+            </td>
           </tr>
-          <tr >
+          <tr *ngIf="SEMAINE5.length">
             <th scope="row">s5</th>
-            <td *ngFor="let day of SEMAINE5; let index = index; let isFirst = first; let isOdd = odd;">{{day}}</td>
+            <td *ngFor="let day of SEMAINE5; let index = index; let isFirst = first; let isOdd = odd;">
+                <span >{{day}}</span>
+                <div *ngFor="let element of getValueOfElement(day) ">
+                    <span>{{getObject(element)[0]}}</span>
+                </div>
+            </td>
+          </tr>
+          <tr *ngIf="SEMAINE6.length" >
+            <th scope="row">s6</th>
+            <td *ngFor="let day of SEMAINE6; let index = index; let isFirst = first; let isOdd = odd;">
+                <span >{{day}}</span>
+                <div *ngFor="let element of getValueOfElement(day) ">
+                    <span>{{getObject(element)[0]}}</span>
+                </div>
+            </td>
           </tr>
           
         </tbody>
